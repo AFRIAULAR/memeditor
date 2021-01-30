@@ -103,13 +103,60 @@
                 </select>
             </div>
         </form>
-    </aside>
-           
-           <!--  <div>
+        <form class="form-img">
+            <h2 class="img-title"> IMAGEN </h2>
+            <div class="url-img">
                 <label for="url"> Copia la url de la imagen y pegala acá</label>
                 <input type="text" id="url">
-            </div>  
-                        VA EN EL FORM DE IMG  -->
+            </div>
+            <div class="img-background">
+                <label for="img-background">Selecciona el fondo de tu imagen</label>
+                <input type="color" id="img-background" value="#ffffff">
+                <label for="panel-background"> </label>
+                <select name="panel-background" id="panel-background">
+                  <option value="Ninuno">Ninguno</option>
+                  <option value="Aclarar">Aclarar</option>
+                  <option value="Oscurecer">Oscurecer</option>
+                  <option value="Diferencia">Diferencia</option>
+                  <option value="Luminosidad">Luminosidad</option>
+                  <option value="Multiplicar">Multplicar</option>
+                </select>
+            </div>
+            <div class="img-filters">
+                <h3 class="h3-ilter">Filtros</h3>
+                    <div class="filters">
+                    <label for="brightness">Brillo</label>
+                    <input type="range" id="brightness" min="0" max="1" step="0.1" value="1">
+                    </div>
+                    <div class="filters">
+                    <label for="opacity"> Opacidad</label>
+                    <input type="range" id="opacity" min="0" max="1" step="0.1" value="1"></div>
+                    <div class="filters">
+                    <label for="contrast"> Contraste</label>
+                    <input type="range" id="contrast" min="100%" max="1000%" step="1%" value="100%"></div>
+                    <div class="filters">
+                    <label for="blur">Desenfoque</label>
+                    <input type="range" id="blur" min="0px" max="10px" step="0.1px" value="0px"></div>
+                    <div class="filters">
+                    <label for="grayscale">Escala de grises</label>
+                    <input type="range" id="grayscale" min="0%" max="100%" step="1%" value="0%"></div>
+                    <div class="filters">
+                    <label for="sepia">Sepia</label>
+                    <input type="range" id="sepia" min="0%" max="100%" step="1%" value="0%"></div>
+                    <div class="filters">
+                    <label for="hue-rotation">Hue</label>
+                    <input type="range" id="Hue" min="0deg" max="359deg" step="1deg" value="0deg"></div>
+                    <div class="filters">
+                    <label for="saturation">Saturación</label>
+                    <input type="range" id="saturation" min="100%" max="1000%" step="10%" value="100%"></div>
+                    <div class="filters">
+                    <label for="negativo">Negativo</label>
+                    <input type="range" id="invert" min="0" max="1" step="0.1" value="1"></div>
+            </div>
+        </form>
+    </aside>
+    
+           
 
     <script src="js/app.js"></script>
 </body>
