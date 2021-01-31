@@ -3,18 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/763e6d2c2f.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Comic+Neue:wght@700&family=Crimson+Text&family=Londrina+Solid:wght@300&family=Open+Sans:ital,wght@1,600;1,800&family=Quattrocento+Sans&display=swap" rel="stylesheet">  
+    
     <title>EDITOR DE MEMES</title>
 </head>
 <body>
+
 <!--          * * *   HEADER  * * * *        -->  
 
     <header>
         <h1 class="title-h1"> GENERADOR DE MEMES </h1>
         <nav class="nav">
             <ul>
-                <li class="nav-img"> <a class="imagen" href="imagen">IMAGEN </a> </li>
-                <li class="nav-txt"> <a class="texto" href="texto">TEXTO </a> </li>
+                <li class="nav-img"> <i class="fas fa-camera"></i> <a class="imagen" href="imagen">IMAGEN </a> </li>
+                <li class="nav-txt"> <i class="far fa-keyboard"></i> <a class="texto" href="texto">TEXTO </a> </li>
+                <li class="switch">  <i class="fas fa-lightbulb"></i>
+                    <label class="switch-button">
+                        <input type="checkbox">
+                        <div class="slide round">
+                        </div>
+                    </label>
+                    <i class="far fa-lightbulb"></i>
+                </li>
             </ul>
         </nav>
     </header>
@@ -24,15 +39,15 @@
     <main class="main">
         <section class="container">
             <article id="article-top-text" class="article-top-text"> TOP TEXT </article>
-            <article id="article-center-text" class="article-center-text"> CENTER TEXT </article>
+            <article id="article-img" class="article-img">  </article>
             <article id="article-bottom-text" class="article-bottom-text"> BOTTOM TEXT </article>
         </section>
-    </main>
+   
 
 <!--          * * *   ASIDE  * * * *        --> 
 
     <aside class="aside-container">
-<!--FORMULARIOS-->        
+<!--FORMULARIO TEXTO-->        
         <form class="form-txt">
             <h2 class="txt-title"> TEXTO </h2>
             <div class="div-text">
@@ -53,46 +68,56 @@
             </div> 
             <div class="font-type">
                 <label for="option">Elige la fuente</label>
-                <select name="option" id="opo">
-                    <option value="arial">Arial</option>
-                    <option value="arial-black">Arial Black</option>
-                    <option value="american-typewriter">American Typewriter</option>
-                    <option value="andale-mono">Andale Mono</option>
-                    <option value="impact">Impact</option>
-                    <option class="helvetica" value="helvetica">Helvetica</option>
+                <select name="option" id="option">
+                    <option value="arial" style="font-family: 'Quattrocento Sans', sans-serif;">Arial</option>
+                    <option value="arial-black" style="font-family: 'Open Sans', sans-serif;">Arial Black</option>
+                    <option value="comic-sans" style="font-family: 'Comic Neue', cursive;">Comic Sans</option>
+                    <option value="corsiva" style="font-family: 'Caveat', cursive;">Corsiva</option>
+                    <option value="helvetica" style="font-family: 'Londrina Solid', cursive">Helvetica</option>
+                    <option value="times-new-roman" style="font-family: 'Crimson Text', serif;">Times New Roman</option>
                 </select>
             </div>
             <div class="font-format"> 
+                <label for="font-size"> Tamaño de fuente
                 <input id="font-size" type="number" value="50" min="0" max="80">
-                <button id="left"> <img src="./img/001-left-align.png"> </button>
-                <button id="center"> <img src="./img/002-center-align.png"> </button>
-                <button id="right"> <img src="./img/003-right-align.png"> </button>
+                </label>
             </div>
+            <div class="font-format"> 
+                <label for="align-text"> Alineación del texto</label>
+            <div class="font-format">     
+                <button id="left"> <i class="fas fa-align-left"></i> </button>
+                <button id="center"> <i class="fas fa-align-center"></i></button>
+                <button id="right"> <i class="fas fa-align-right"></i> </button>
+            </div>   
+            </div>
+        
             <div class="font-format">
                 <label for="color-text">SELECCIONA EL COLOR DEL TEXTO</label>
                 <input type="color" id="color-text" value="#000000">
-                <span id="color-text">#000000</span>
+                <span id="color-text"></span>
             </div>
             <div class="font-format">
                 <label for="color-background">SELECCIONA EL COLOR DEL FONDO</label>
                 <input type="color" id="color-background" value="#ffffff">
-                <span id="color-background">#ffffff</span>
-                <label for="transparente-back">Fondo transparente</label>
+                <span id="color-background"></span>
+            </div>
+            <div class="font-format">     
+            <label for="transparente-back">Fondo transparente</label>
                 <input type="checkbox" id="transparente-back">
             </div>
-            <div>
+            <div class="outline">
                 <label for="contorno">Contorno</label>
             </div>
-            <div class="outline"> <!--BUSCAR ICONOS-->
-                <button>Ninguno</button>
-                <button>Claro</button>
-                <button>Oscuro</button>
-              </div>
-            <div>
+            <div class="outline-icons"> 
+                <button><i class="far fa-times-circle"></i></button>
+                <button><i class="far fa-circle"></i></button>
+                <button><i class="fas fa-circle"></i></button>
+            </div>
+            <div class="spacing">
                 <label for="spacing">Espaciado</label>
                 <input type="number" id="spacing" value="15" min="10" max="20">
             </div>
-            <div>
+            <div class="line-spacing">
                 <label for="line-spacing">Interlineado</label>
                 <select name="line-spacing" id="line-spacing">
                   <option value="0.8">0.8</option>
@@ -103,10 +128,12 @@
                 </select>
             </div>
         </form>
+
+<!--FORMULARIO IAMGEN-->   
         <form class="form-img">
             <h2 class="img-title"> IMAGEN </h2>
             <div class="url-img">
-                <label for="url"> Copia la url de la imagen y pegala acá</label>
+                <label for="url" class="url-img">Pega acá la URL de la imagen </label>
                 <input type="text" id="url">
             </div>
             <div class="img-background">
@@ -138,7 +165,7 @@
                     <label for="blur">Desenfoque</label>
                     <input type="range" id="blur" min="0px" max="10px" step="0.1px" value="0px"></div>
                     <div class="filters">
-                    <label for="grayscale">Escala de grises</label>
+                    <label for="grayscale">Grayscale</label>
                     <input type="range" id="grayscale" min="0%" max="100%" step="1%" value="0%"></div>
                     <div class="filters">
                     <label for="sepia">Sepia</label>
@@ -155,7 +182,7 @@
             </div>
         </form>
     </aside>
-    
+</main>
            
 
     <script src="js/app.js"></script>
