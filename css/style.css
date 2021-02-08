@@ -155,7 +155,9 @@ input:checked + .slide:before {
 .url, .url-img, .img-background, .img-filters, .filters{
     margin:10px;
 }
-    
+
+
+
 
 /*
 font-family: 'Caveat', cursive;

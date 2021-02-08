@@ -1,6 +1,6 @@
-/*              *****VARIABLES  MAIN*****    */
+/*              *****VARIABLES*****    */
 
-/* TEXTO*/
+/*------VARIABLES TEXTO------*/
 const panelImg = document.getElementsByClassName('nav-img');
 const panelTxt = document.getElementsByClassName('nav-txt');
 const botSwitch = document.getElementsByClassName('switch');
@@ -26,9 +26,10 @@ const transparentBack = document.getElementById ('transparentBack')
 const spacing = document.getElementById ('spacing');
 const lineSpacing = document.getElementById ('lineSpacing');
 
+/*------VARIABLES IMAGEN------*/
+
 
 /*        *****EVENTOS DE FORMULARIO DE TEXTO*****    */
-
 /*TEXTO SUPERIOR*/
 topText.addEventListener('keyup', ()=> {
     articleTopText.innerHTML=topText.value;
@@ -157,5 +158,26 @@ lineSpacing.addEventListener('change', (e) =>{
     articleBottomText.style.marginTop = '0';
 });
 
+/*        *****EVENTOS DE FORMULARIO DE IMAGEN*****    */
 
+const url = document.getElementById ('url');
+    url.addEventListener('keyup', (e) => {
+        e.preventDefault();
+    articleImg.style.backgroundImage = `url(${e.target.value})`;
+    articleImg.style.backgroundPosition = 'center';
+    articleImg.style.backgroundRepeat = 'no-repeat';
+});
+
+const backImg = document.getElementById('imgBackground')
+    backImg.addEventListener('input', (e) => {
+        e.preventDefault();
+    articleImg.style.backgroundColor = `${e.target.value}`;
+});
+/* 
+const panelBack = document.getElementById ('panelBackground');
+panelBack.addEventListener('change', () => {
+    articleImg.style.backgroundBlendMode = panelBackground.value;
+    });
+
+     */
 
