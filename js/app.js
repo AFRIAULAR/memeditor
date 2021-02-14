@@ -1,6 +1,5 @@
-/*              *****VARIABLES*****    */
 
-/*------VARIABLES TEXTO------*/
+/*------TEXT VARIABLES------*/
 const panelImg = document.getElementsByClassName('nav-img');
 const panelTxt = document.getElementsByClassName('nav-txt');
 const botSwitch = document.getElementsByClassName('switch');
@@ -26,11 +25,9 @@ const transparentBack = document.getElementById ('transparentBack')
 const spacing = document.getElementById ('spacing');
 const lineSpacing = document.getElementById ('lineSpacing');
 
-/*------VARIABLES IMAGEN------*/
+/*        *****TEXT FORM EVENTS*****    */
 
-
-/*        *****EVENTOS DE FORMULARIO DE TEXTO*****    */
-/*TEXTO SUPERIOR*/
+/********TOP TEXT********/
 topText.addEventListener('keyup', ()=> {
     articleTopText.innerHTML=topText.value;
 });
@@ -43,7 +40,7 @@ topTextCheck.addEventListener('click', () =>{
     }
 });
 
-/*TEXTO INFERIOR*/
+/********BOTTOM TEXT********/
 bottomText.addEventListener('keyup', ()=> {
     articleBottomText.innerHTML=bottomText.value;
 });
@@ -57,17 +54,24 @@ bottomTextCheck.addEventListener('click', () =>{
 });
 
 
-/* FUENTES */
+/********FONTS********/
 fontType.addEventListener('change',()=>{
     articleTopText.style.fontFamily = `${option.value}`;
     articleBottomText.style.fontFamily = `${option.value}`;
-});   /* el evento funciona pero no las fontfamily*/ 
+});  
 
 fontSize.addEventListener('change', () =>{
     articleTopText.style.fontSize = `${fontSize.value}px`;
     articleBottomText.style.fontSize = `${fontSize.value}px`;
 });
 
+fontColor.addEventListener('input', (e) => {
+    articleTopText.style.color = e.target.value;
+    articleBottomText.style.color = e.target.value;
+    fontColor.innerText = `${e.target.value}`;
+});
+
+/* *******ALIGN TEXT******* */
 textAlignCenter.addEventListener('click',(e)=>{
     e.preventDefault();
     articleTopText.style.textAlign = 'center';
@@ -86,11 +90,7 @@ textAlignLeft.addEventListener('click',(e)=>{
     articleBottomText.style.textAlign = 'left';
 });   
 
-fontColor.addEventListener('input', (e) => {
-    articleTopText.style.color = e.target.value;
-    articleBottomText.style.color = e.target.value;
-    fontColor.innerText = `${e.target.value}`;
-});
+/* *******BACKGROUND TEXT******* */
 
 colorBack.addEventListener('input', (e) => {
     articleTopText.style.backgroundColor = e.target.value;
@@ -107,7 +107,6 @@ transparentBack.addEventListener('change', () => {
         articleBottomText.style.backgroundColor = 'transparent';
         articleBottomText.style.position = 'absolute';
         articleBottomText.style.bottom = '0';
-
     }else{
         articleTopText.style.backgroundColor = `${colorBack.value}`;
         articleTopText.style.position = 'relative';
@@ -116,6 +115,19 @@ transparentBack.addEventListener('change', () => {
     }
 });    
 
+/* *******SPACING TEXT******* */
+
+spacing.addEventListener ('change', (e) =>{
+    articleTopText.style.padding = `${e.target.value}px 20px`;
+    articleBottomText.style.padding = `${e.target.value}px 20px`;
+    articleBottomText.style.marginTop = '0';
+    })
+
+lineSpacing.addEventListener('change', (e) =>{
+    articleTopText.style.lineHeight = `${e.target.value}`;
+    articleBottomText.style.lineHeight = `${e.target.value}`;
+    articleBottomText.style.marginTop = '0';
+});
 
 /*VER POSICION DE BOTTOM TEXT*/
 
@@ -144,40 +156,68 @@ const darkCont = document.getElementById ('dark-cont');
     });
 */
 
+/***********************************************************/
 
-spacing.addEventListener ('change', (e) =>{
-    articleTopText.style.padding = `${e.target.value}px 20px`;
-    articleBottomText.style.padding = `${e.target.value}px 20px`;
-    articleBottomText.style.marginTop = '0';
-    })
-
-
-lineSpacing.addEventListener('change', (e) =>{
-    articleTopText.style.lineHeight = `${e.target.value}`;
-    articleBottomText.style.lineHeight = `${e.target.value}`;
-    articleBottomText.style.marginTop = '0';
-});
-
-/*        *****EVENTOS DE FORMULARIO DE IMAGEN*****    */
-
+/*------IMAGE VARIABLES------*/
 const url = document.getElementById ('url');
-    url.addEventListener('keyup', (e) => {
-        e.preventDefault();
+const backImg = document.getElementById('imgBackground')
+const panelBack = document.getElementById ('panelBackground')
+
+
+
+/*  ********IMAGE FORM EVENTS*********   */
+
+url.addEventListener('keyup', (e) => {
+    e.preventDefault();
     articleImg.style.backgroundImage = `url(${e.target.value})`;
     articleImg.style.backgroundPosition = 'center';
     articleImg.style.backgroundRepeat = 'no-repeat';
 });
 
-const backImg = document.getElementById('imgBackground')
-    backImg.addEventListener('input', (e) => {
-        e.preventDefault();
+backImg.addEventListener('input', (e) => {
+    e.preventDefault();
     articleImg.style.backgroundColor = `${e.target.value}`;
-});
-/* 
-const panelBack = document.getElementById ('panelBackground');
-panelBack.addEventListener('change', () => {
-    articleImg.style.backgroundBlendMode = panelBackground.value;
-    });
+}); 
 
-     */
+panelBack.addEventListener('change',()=> {
+    articleImg.style.backgroundBlendMode = panelBackground.value});
 
+const imgFilters = document.getElementsByClassName ('filters');
+const brightFilter = document.getElementById ('brightness');
+const opacFilter = document.getElementById ('opacity');
+const contrastFilter = document.getElementById ('contrast');
+const blurFilter = document.getElementById ('blur');
+const grayFilter = document.getElementById ('grayscale');
+const sepiaFilter = document.getElementById ('sepia');
+const hueFilter = document.getElementById ('hue');
+const satFilter = document.getElementById ('saturation');
+const invertFilter = document.getElementById ('invert');
+const resetButton = document.getElementById ('resetButton');
+
+const filtrosImagen = () =>{
+    articleImg.style.filter = `brightness(${brightFilter.value}) opacity(${opacFilter.value}) contrast(${contrastFilter.value}%) blur(${blurFilter.value}px) grayscale(${grayFilter.value}%) sepia(${sepiaFilter.value}%) hue-rotate(${hueFilter.value}deg) saturate(${satFilter.value}%) invert(${invertFilter.value})`;
+};
+
+brightFilter.addEventListener('change', filtrosImagen);
+opacFilter.addEventListener('change', filtrosImagen);
+contrastFilter.addEventListener('change', filtrosImagen);
+blurFilter.addEventListener('change', filtrosImagen);
+grayFilter.addEventListener('change', filtrosImagen);
+sepiaFilter.addEventListener('change', filtrosImagen);
+hueFilter.addEventListener('change', filtrosImagen);
+satFilter.addEventListener('change', filtrosImagen);
+invertFilter.addEventListener('change', filtrosImagen);
+
+/* resetButton.addEventListener('click', (e) => {
+    articleImg.style.filter = e.preventDefault();
+    brightFilter.value = 1;
+    opacFilter.value = 1;
+    contrastFilter.value = 100;
+    blurFilter.value = 0;
+    grayFilter.value = 0;
+    sepiaFilter.value = 0;
+    hueFilter.value = 0;
+    satFilter.value = 100;
+    invertFilter.value = 0;
+    filter();
+}); */

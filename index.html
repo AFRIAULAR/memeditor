@@ -39,7 +39,7 @@
     <main class="main">
         <section class="container">
             <article id="articleTopText" class="article-top-text"> TOP TEXT </article>
-            <article id="articleImg" class="article-img">  </article>
+            <article> <div id="articleImg" class="article-img"> </div></article>
             <article id="articleBottomText" class="article-bottom-text"> BOTTOM TEXT </article>
          <!--FALTA CREAR BOTON DE DESCARGA-->
         </section>
@@ -69,12 +69,11 @@
             <div class="font-type">
                 <label for="option">Elige la fuente</label>
                 <select name="option" id="option">
-                    <option id= "quattrocento" value="arial" style="font-family: 'Quattrocento Sans', sans-serif;">Arial</option>
-                    <option id= "arialBlack" value="arial-black" style="font-family: 'Open Sans', sans-serif;">Arial Black</option>
-                    <option id= "comicSans" value="comic-sans" style="font-family: 'Comic Neue', cursive;">Comic Sans</option>
-                    <option id= "corsiva" value="corsiva" style="font-family: 'Caveat', cursive;">Corsiva</option>
-                    <option id= "helvetica" value="helvetica" style="font-family: 'Londrina Solid', cursive">Helvetica</option>
-                    <option id= "timesNewRoman" value="times-new-roman" style="font-family: 'Crimson Text', serif;">Times New Roman</option>
+                    <option id= "arial" value="arial" style="font-family:Arial, Helvetica, sans-serif">ARIAL</option>
+                    <option id= "courier" value="courier" style="font-family: 'Courier New', Courier, monospace;">COURIER NEW</option>
+                    <option id= "cursive" value="cursive" style="font-family:'cursive'"> COMIC SANS </option>
+                    <option id= "impact" value="impact" style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">IMPACT</option>
+                    <option id= "timesNewRoman" value="times-new-roman" style="font-family:'Times New Roman', Times, serif">Times New Roman</option>
                 </select>
             </div>
             <div class="font-format"> 
@@ -127,6 +126,7 @@
                   <option value="2">2</option>
                 </select>
             </div>
+    
         </form>
 
 <!--FORMULARIO IAMGEN-->   
@@ -141,12 +141,12 @@
                 <input type="color" id="imgBackground" value="#ffffff">
                 <label for="panel-background"> </label>
                 <select name="panel-background" id="panelBackground">
-                  <option id="ninguno" value="Ninguno">Ninguno</option>
-                  <option id="aclarar" value="Aclarar">Aclarar</option>
-                  <option id="oscurecer" value="Oscurecer">Oscurecer</option>
-                  <option id="diferencia" value="Diferencia">Diferencia</option>
-                  <option id="luminosidad" value="Luminosidad">Luminosidad</option>
-                  <option id="multiplicar" value="Multiplicar">Multplicar</option>
+                  <option id="normal" value="normal">Ninguno</option>
+                  <option id="lighten" value="lighten">Aclarar</option>
+                  <option id="darken" value="darken">Oscurecer</option>
+                  <option id="difference" value="difference">Diferencia</option>
+                  <option id="luminosity" value="luminosity">Luminosidad</option>
+                  <option id="multiply" value="multiply">Multiplicar</option>
                 </select>
             </div>
             <div class="img-filters">
@@ -172,7 +172,7 @@
                     <input type="range" id="sepia" min="0%" max="100%" step="1%" value="0%"></div>
                     <div class="filters">
                     <label for="hue-rotation">Hue</label>
-                    <input type="range" id="Hue" min="0deg" max="359deg" step="1deg" value="0deg"></div>
+                    <input type="range" id="hue" min="0deg" max="359deg" step="1deg" value="0deg"></div>
                     <div class="filters">
                     <label for="saturation">Saturación</label>
                     <input type="range" id="saturation" min="100%" max="1000%" step="10%" value="100%"></div>
@@ -180,6 +180,7 @@
                     <label for="negativo">Negativo</label>
                     <input type="range" id="invert" min="0" max="1" step="0.1" value="1"></div>
             </div>
+            <button class="reset-button" id="resetButton"> REESTABLECER FILTROS </button>
         </form>
     </aside>
 </main>
